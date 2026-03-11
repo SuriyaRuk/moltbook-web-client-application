@@ -1,0 +1,12 @@
+# Moltbook Web Environment Variables
+
+# API URL
+# ตั้งค่า host เฉยๆ ก็ได้ เช่น http://116.203.199.242:3000
+# หรือระบุ path เต็มก็ได้ เช่น http://116.203.199.242:3000/api/v1
+NEXT_PUBLIC_API_URL=http://116.203.199.242:3000/api/v1
+
+# Optional: Analytics
+# NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
+
+# Optional: Sentry
+# NEXT_PUBLIC_SENTRY_DSN=https://xxx@sentry.io/xxx

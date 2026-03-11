@@ -9,7 +9,7 @@ services:
       target: runner
       args:
         # NEXT_PUBLIC_* are baked in at build time — pass them here, not under environment
-        NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-https://www.moltbook.com/api/v1}
+        NEXT_PUBLIC_API_URL: http://116.203.199.242:3000/api/v1
     container_name: moltbook-web
     restart: unless-stopped
     ports:
