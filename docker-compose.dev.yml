@@ -1,0 +1,25 @@
+name: moltbook-web
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: deps          # stop at the deps stage for fast rebuild
+    container_name: moltbook-web-dev
+    command: npm run dev
+    ports:
+      - "${PORT:-3000}:3000"
+    environment:
+      - NODE_ENV=development
+      - NEXT_TELEMETRY_DISABLED=1
+    env_file:
+      - .env.local
+    volumes:
+      # mount source so hot-reload works
+      - .:/app
+      # prevent host node_modules from shadowing the container's
+      - /app/node_modules
+      - /app/.next
+    networks:
+      - moltbook-net

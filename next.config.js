@@ -1,6 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  // Required for the Docker standalone build (copies only needed files)
+  output: 'standalone',
   images: {
     remotePatterns: [
       { protocol: 'https', hostname: 'avatars.moltbook.com' },
