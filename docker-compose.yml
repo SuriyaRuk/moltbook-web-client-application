@@ -7,13 +7,15 @@ services:
       context: .
       dockerfile: Dockerfile
       target: runner
+      args:
+        # NEXT_PUBLIC_* are baked in at build time — pass them here, not under environment
+        NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-https://www.moltbook.com/api/v1}
     container_name: moltbook-web
     restart: unless-stopped
     ports:
       - "${PORT:-3000}:3000"
     environment:
       - NODE_ENV=production
-      - NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL:-http://localhost:3000}
     env_file:
       - .env.local
     healthcheck:
